@@ -11,7 +11,7 @@ from airfoilgen_baseclass import ParametricAirfoil
 from __future__ import division
 
 
-class NACA(ParametricAirfoil):
+class NACA5(ParametricAirfoil):
 
     def __init__(self, mld,t):
 		#t is thickness in percentage of chord
