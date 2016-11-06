@@ -10,7 +10,7 @@ import math
 LIMIT = 100000
 
 def update_temperature(T, k):
-    return T - 0.001
+    return .99*T
 
 def get_neighbors(i, L):
     assert L > 1 and i >= 0 and i < L
@@ -22,8 +22,6 @@ def get_neighbors(i, L):
         return [i - 1, i + 1]
 
 def make_move(x, A, T):
-    # nhbs = get_neighbors(x, len(A))
-    # nhb = nhbs[random.choice(range(0, len(nhbs)))]
     nhb = random.choice(xrange(0, len(A))) # choose from all points
 
     delta = A[nhb] - A[x]
