@@ -41,7 +41,7 @@ class NACA5(ParametricAirfoil):
 			self.p = .25
 		else: 
 			raise Warning("Unknown airfoil number. Try again.")	
-		print self.m,self.k1,self.p
+		#print self.m,self.k1,self.p
 
 	def _camberline(self,xpts):
 		m,p = self.m, self.p
