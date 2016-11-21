@@ -5,13 +5,14 @@ __author__ = "Karan Chawla"
 __email__  = "karangc2@illinois.edu"
 __version__= "0.1"
 
-'''from __future__ import division, print_function
+#from __future__ import division, print_function
 from os import remove
 import numpy as np
 from copy import copy
 from string import ascii_uppercase
 from random import choice
-from xfoil import xfoil'''
+from xfoil import xfoil
+from random import choice
 import random
 import math
 import numpy as np 
@@ -19,8 +20,29 @@ import matplotlib.pyplot as plt
 from airfoil_generators import parsec
 
 Re = 1E6
-LIMIT = 100000
-'''
+LIMIT = 5
+S = 12 
+constraints = np.array((
+#rle        x_pre/suc    d2ydx2_pre/suc  th_pre/suc
+(.015,.05), (.3,.75),     (-2,.2),          (0,40)
+))
+
+class Particle():
+    def __init__(self,constraints):
+        self.constraints = constraints
+        self.positions = np.ones(len(constraints), dtype = "float")
+        #self.velocity = np.zeros(len(constraints) , dtype ="float") 
+        # randomize positions and speeds
+        self.randomize()
+        #set current point as best 
+        #self.global_best(float('inf'))
+
+    def randomize(self):
+        for i, (lowerbound,upperbound) in enumerate(self.constraints):
+            self.positions[i] = np.random.uniform(lowerbound,upperbound)
+            absrange = abs(lowerbound-upperbound)
+            #self.velocity[i] = np.random.uniform(-absrange,absrange)
+
 def construct_airfoil(*pts):
     k = {}
     k['rle'] = pts[0]
@@ -57,18 +79,21 @@ def score_airfoil(airfoil):
 
     try:
         score = polar[0][0][2]
-        print("Score: ", score)
+        print "Score: ", score
         # If it's not NaN
         if np.isfinite(score):
-            print("Return score")
+            print "Return score"
             return score
         else:
-            print("Return None")
+            print"Return None"
             return None
     except IndexError:
-        print("Return None (IndexError)")
+        print "Return None (IndexError)"
         return None
-'''
+
+particle = [Particle(constraints) for i in xrange(0, LIMIT)]
+
+
 
 def update_temperature(T, k):
     return .99*T
@@ -139,8 +164,18 @@ def func(x):
 def initialize(L):
     return map(rastrigin_nd, xrange(0, L))
 
+def initialise_set(L):
+    airfoil = []
+    for i in range(L):
+        airfoil.append(construct_airfoil(*particle[i].positions))
+    for j in range(L): 
+        x = map(score_airfoil,airfoil)
+    print x 
+    return x 
+        
+
 def main():
-    A = initialize(LIMIT)
+    A = initialise_set(LIMIT)
 
     local_minima = []
     for i in xrange(0, LIMIT):
