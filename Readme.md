@@ -31,3 +31,6 @@ means giving up some control over the airfoil spline. The figure below shows NUR
 
 ## Additional development ideas
 - Simulated Annealing optimization technique: Would be interesting to compare this technique with PSO.
+
+## References
+Based on the work by theFonz. 
