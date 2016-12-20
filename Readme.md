@@ -27,7 +27,7 @@ It can easily be applied to airfoils, simply by translating the list of constrai
 http://eprints.soton.ac.uk/50031/1/Sobe07.pdf
 Follows the method implemented in this paper. It reduces the number of paramters from 12(required in PARSEC) to 6, helping in reducing the computational resource need for the optimization process. The only drawback being, it doesn't work too well with transonic airfoils, as reducing the number of paramters also
 means giving up some control over the airfoil spline. The figure below shows NURBS working with PSO particle optimizer. 
-![](example_figures/pso-nurbs-dragalpha0-Re1M.png)  
+![](example_figures/nurbs_PSO_highRe_drag.png)  
 
 ## Simulation
 ![](example_figures/sim.gif)
