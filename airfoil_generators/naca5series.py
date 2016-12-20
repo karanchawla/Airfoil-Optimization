@@ -88,9 +88,9 @@ def _example():
 
 	import matplotlib.pyplot as plt
 	#plt.title("NACA {}{}{}".format(mld, t))
-	plt.plot(pts[0], pts[1], 'o--')
-	plt.plot(pts[2], pts[3], 'o--')
-	plt.plot(pts[4], pts[5], 'o--')
+	plt.plot(pts[0], pts[1],)
+	plt.plot(pts[2], pts[3])
+	#plt.plot(pts[4], pts[5])
 	plt.gca().axis('equal')
 	plt.show()
 
