@@ -29,9 +29,6 @@ Follows the method implemented in this paper. It reduces the number of paramters
 means giving up some control over the airfoil spline. The figure below shows NURBS working with PSO particle optimizer. 
 ![](example_figures/nurbs_PSO_highRe_drag.png)  
 
-## Simulation
-![](example_figures/sim.gif)
-
 ## Additional development ideas
 - Simulated Annealing optimization technique: Would be interesting to compare this technique with PSO.
 
