@@ -30,5 +30,7 @@ means giving up some control over the airfoil spline. The figure below shows NUR
 ![](example_figures/pso-nurbs-dragalpha0-Re1M.png)  
 
 ## Additional development ideas
-- NURBS airfoils: A great idea would be to add NURBS airfoils to the airfoil generators, as NURBS can define very smooth airfoils using very few parameters, so it's a good fit for optimization purposes. Ideally, its shape can be initialized by fitting it to some existing shape, to start off with a reasonable airfoil.
 - Simulated Annealing optimization technique: Would be interesting to compare this technique with PSO.
+
+## References
+Based on the work by theFonz. 
